@@ -1,3 +1,4 @@
+# Creating a Class function that edits attribute values
 class Flight:
 
     def __init__(self, origin, destination, duration):

@@ -1,3 +1,4 @@
+# Using python Flask to access db instead of SQL language
 import os
 
 from flask import Flask, render_template, request
@@ -9,6 +10,8 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 
 def main():
+    # select all of the flights in Flight object
+    # flights is a list containing Flight objects
     flights = Flight.query.all()
     for flight in flights:
         print(f"{flight.origin} to {flight.destination}, {flight.duration} minutes.")

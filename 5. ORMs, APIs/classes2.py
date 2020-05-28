@@ -1,3 +1,4 @@
+# creating class functions
 class Flight:
 
     def __init__(self, origin, destination, duration):
@@ -13,6 +14,7 @@ class Flight:
 
 def main():
 
+    # Variable names in the parameter is not compulsory i.e. (NY,Paris,540) is fine
     f1 = Flight(origin="New York", destination="Paris", duration=540)
     f1.print_info()
 

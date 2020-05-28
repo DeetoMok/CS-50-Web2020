@@ -1,3 +1,4 @@
+# Using python Flask to access db instead of SQL language and using that data
 import os
 
 from flask import Flask, render_template, request

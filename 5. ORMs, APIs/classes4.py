@@ -1,3 +1,4 @@
+# using two different classes together 
 class Flight:
 
     counter = 1
@@ -31,6 +32,7 @@ class Flight:
 
     def add_passenger(self, p):
         self.passengers.append(p)
+        # note no need to instantiate this variable in the Passenger class
         p.flight_id = self.id
 
 
