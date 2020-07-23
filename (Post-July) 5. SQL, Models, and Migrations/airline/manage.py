@@ -3,10 +3,9 @@
 import os
 import sys
 
-# python manage.py runserver
-# python manage.py migrate
+
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'lecture3.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'airline.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
