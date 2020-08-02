@@ -13,9 +13,12 @@ def login_view(request):
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
+        # if valid, returns who the user is
         user = authenticate(request, username=username, password=password)
         if user is not None:
+            # django's login function
             login(request, user)
+            # redirect to index route. Try not to redirect directly to html ?????? isit?
             return HttpResponseRedirect(reverse("index"))
         else:
             return render(request, "users/login.html", {

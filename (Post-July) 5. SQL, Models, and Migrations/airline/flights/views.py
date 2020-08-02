@@ -14,12 +14,14 @@ def index(request):
 
 def flight(request, flight_id):
     try:
-        flight = Flight.objects.get(id=flight_id)
+        flight = Flight.objects.get(id=flight_id) # or pk=flight_id
     except Flight.DoesNotExist:
+        # raise 
         raise Http404("Flight not found.")
     return render(request, "flights/flight.html", {
         "flight": flight,
         "passengers": flight.passengers.all(),
+        # exclude passengers on flight.                                     So based on this flight, django automatically goes into passengers on this flight to exclude??
         "non_passengers": Passenger.objects.exclude(flights=flight).all()
     })
 
@@ -35,4 +37,5 @@ def book(request, flight_id):
         except Passenger.DoesNotExist:
             return HttpResponseBadRequest("Bad Request: passenger does not exist")
         passenger.flights.add(flight)
+        # return to flight route/url with a particular argument
         return HttpResponseRedirect(reverse("flight", args=(flight_id,)))
